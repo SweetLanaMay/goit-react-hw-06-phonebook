@@ -7,7 +7,7 @@ import css from './App.module.css';
 const App = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.contacts);
- 
+  
   const handleContactAdd = newContact => {
     dispatch(addContact(newContact));
   };
@@ -15,7 +15,7 @@ const App = () => {
   const handleContactDelete = contactId => {
     dispatch(deleteContact(contactId));
   };
-  
+  // console.log(contacts)
   return (
     <div className={css.container}>
       <h1 className={css.phoneBookTitle}>PhoneBook</h1>

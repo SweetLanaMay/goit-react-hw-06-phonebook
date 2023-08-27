@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Filter = ({ contacts, onDeleteContact }) => {
   const [filter, setFilter] = useState('');
-
+  
   const handleFilterChange = event => {
     setFilter(event.target.value);
   };
@@ -13,7 +13,7 @@ const Filter = ({ contacts, onDeleteContact }) => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
-
+  
   return (
     <>
       <label className={css.filterLabel}>
@@ -35,7 +35,7 @@ const Filter = ({ contacts, onDeleteContact }) => {
 };
 
 Filter.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  // contacts: PropTypes.array.isRequired,
   onDeleteContact: PropTypes.func,
 };
 

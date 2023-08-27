@@ -10,7 +10,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { contactSlice } from 'redux/contactSlice';
+import { contactSlice } from './contactSlice';
+
 
 const persistConfig = {
   key: 'root',
