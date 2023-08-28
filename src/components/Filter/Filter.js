@@ -4,6 +4,7 @@ import css from './Filter.module.css';
 import PropTypes from 'prop-types';
 
 const Filter = ({ contacts, onDeleteContact }) => {
+  console.log(typeof contacts)
   const [filter, setFilter] = useState('');
   
   const handleFilterChange = event => {
