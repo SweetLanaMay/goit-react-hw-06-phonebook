@@ -3,10 +3,9 @@ import ContactList from 'components/ContactList';
 import css from './Filter.module.css';
 import PropTypes from 'prop-types';
 
-const Filter = ({ contacts, onDeleteContact }) => {
-  console.log(typeof contacts)
+const Filter = ({ contacts }) => {
   const [filter, setFilter] = useState('');
-  
+
   const handleFilterChange = event => {
     setFilter(event.target.value);
   };
@@ -14,7 +13,7 @@ const Filter = ({ contacts, onDeleteContact }) => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
-  
+
   return (
     <>
       <label className={css.filterLabel}>
@@ -27,10 +26,7 @@ const Filter = ({ contacts, onDeleteContact }) => {
           className={css.filterInput}
         />
       </label>
-      <ContactList
-        contacts={filteredContacts}
-        onDeleteContact={onDeleteContact}
-      />
+      <ContactList contacts={filteredContacts} />
     </>
   );
 };

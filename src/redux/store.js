@@ -12,7 +12,6 @@ import {
 } from 'redux-persist';
 import { contactSlice } from './contactSlice';
 
-
 const persistConfig = {
   key: 'root',
   storage,
