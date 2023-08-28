@@ -32,7 +32,7 @@ const Filter = ({ contacts }) => {
 };
 
 Filter.propTypes = {
-  // contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.array.isRequired,
   onDeleteContact: PropTypes.func,
 };
 
