@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactSlice';
+import { getContacts } from 'redux/selectors'
 import PhoneBook from 'components/PhoneBook';
 import Filter from 'components/Filter';
 import css from './App.module.css';
 
 const App = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(getContacts);
 
   const handleContactAdd = newContact => {
     dispatch(addContact(newContact));
@@ -15,9 +16,9 @@ const App = () => {
   return (
     <div className={css.container}>
       <h1 className={css.phoneBookTitle}>PhoneBook</h1>
-      <PhoneBook contacts={contacts} onContactAdd={handleContactAdd} />
+      <PhoneBook onContactAdd={handleContactAdd}/>
       <h2 className={css.contactsTitle}>Contacts</h2>
-      <Filter contacts={contacts} />
+      <Filter  />
     </div>
   );
 };

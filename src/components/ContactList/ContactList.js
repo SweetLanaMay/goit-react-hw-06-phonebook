@@ -1,18 +1,19 @@
-import ContactItem from 'components/ContactItem';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
+import ContactItem from 'components/ContactItem'; // Переконайтеся, що правильно імпортуєте ContactItem
 import css from './ContactList.module.css';
-import PropTypes from 'prop-types';
 
-const ContactList = ({ contacts }) => (
-  <ul className={css.contactsList}>
-    {contacts.map(contact => (
-      <ContactItem key={contact.id} contact={contact} />
-    ))}
-  </ul>
-);
+const ContactList = () => {
+  const contacts = useSelector(getContacts);
 
-ContactList.propTypes = {
-  contacts: PropTypes.array.isRequired,
-  onDeleteContact: PropTypes.func,
+  return (
+    <ul className={css.contactsList}>
+      {contacts.map(contact => (
+        <ContactItem key={contact.id} contact={contact} />
+      ))}
+    </ul>
+  );
 };
 
 export default ContactList;

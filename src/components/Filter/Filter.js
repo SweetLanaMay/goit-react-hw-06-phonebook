@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getContacts } from 'redux/selectors';
+import { setFilter } from 'redux/filterSlice';
+import { getFilter } from 'redux/selectors'
 import ContactList from 'components/ContactList';
 import css from './Filter.module.css';
-import PropTypes from 'prop-types';
 
-const Filter = ({ contacts }) => {
-  const [filter, setFilter] = useState('');
+const Filter = () => {
+  const filter = useSelector(getFilter);
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
   const handleFilterChange = event => {
-    setFilter(event.target.value);
+    dispatch(setFilter(event.target.value));
   };
 
   const filteredContacts = contacts.filter(contact =>
@@ -29,11 +34,6 @@ const Filter = ({ contacts }) => {
       <ContactList contacts={filteredContacts} />
     </>
   );
-};
-
-Filter.propTypes = {
-  contacts: PropTypes.array.isRequired,
-  onDeleteContact: PropTypes.func,
 };
 
 export default Filter;

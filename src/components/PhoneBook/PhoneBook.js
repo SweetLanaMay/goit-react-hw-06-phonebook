@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
 import { nanoid } from 'nanoid';
 import css from './PhoneBook.module.css';
 
-const PhoneBook = ({ contacts, onContactAdd }) => {
+const PhoneBook = ({ onContactAdd }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(getContacts);
 
   const handleNameChange = event => {
     setName(event.target.value);
@@ -34,7 +37,7 @@ const PhoneBook = ({ contacts, onContactAdd }) => {
 
       setName('');
       setNumber('');
-      onContactAdd(newContact);
+      onContactAdd(newContact)
     }
   };
 
